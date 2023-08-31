@@ -11,7 +11,7 @@ router.post('/login',passport.authenticate('local',{
     failureFlash: true  //* SHOWING flash => wrong password entered.
 }),(req,res)=>{
     req.flash('success', `Welcome back ${req.user?.name}`);
-		return res.redirect('/home');
+		return res.redirect('/');
 });
 router.get('/signup',(req,res)=>{
     return res.render('user/signup',{page: 'Signup - Hire Hub'});
@@ -33,15 +33,15 @@ router.post('/signup',async (req,res)=>{
 			if (error) {
 				req.flash('error', 'Something went wrong while signing you up, please try again later');
 				console.log(error);
-				return res.redirect('/home');
+				return res.redirect('/');
 			}
 			req.flash('success', 'You Register Successfully');
-			return res.redirect('/home');
+			return res.redirect('/');
 		});
 	} catch (error) {
 		req.flash('error', `${error}`);
 		console.log(error);
-		return res.redirect('/home');
+		return res.redirect('/');
 	}
 });
 
@@ -68,10 +68,10 @@ router.get('/logout',(req,res)=>{
         if (error) {
 			req.flash('error', 'Something went wrong while logging you out, please try again later');
 			console.log(error);
-			return res.redirect('/home');
+			return res.redirect('/');
 		}
 		req.flash('success', 'Successfully logged out');
-		return res.redirect('/home');
+		return res.redirect('/');
     });
 });
 module.exports = router;
