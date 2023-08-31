@@ -19,7 +19,7 @@ function escapeRegex(text) {
 	return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-router.get('/home',async (req,res) =>{
+router.get('/',async (req,res) =>{
     try{
         let pageNo = 1;
         if(req.query.page) pageNo = req.query.page;

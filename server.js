@@ -85,9 +85,9 @@ app.use(questionRoute);
 
 //* 5 API making.
 
-app.get("/",(req,res)=>{ //landing page route.
-    res.send("working");
-});
+// app.get("/",(req,res)=>{ //landing page route.
+//     res.send("working");
+// });
 
 
 app.get("*",(req,res) =>{ // Handeling invalid URL.
